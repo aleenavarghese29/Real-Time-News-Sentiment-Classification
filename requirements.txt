@@ -5,4 +5,4 @@ newsapi-python==0.2.7
 pandas==2.1.1
 plotly==5.16.1
 feedparser==6.0.10
-streamlit-autorefresh==0.0.4
+streamlit-autorefresh==1.0.1
