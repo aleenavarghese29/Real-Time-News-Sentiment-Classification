@@ -9,7 +9,7 @@ from pyspark.ml.classification import LogisticRegression
 from pyspark.ml import Pipeline
 import pandas as pd
 import plotly.express as px
-from streamlit_autorefresh import st_autorefresh
+
 
 st.title("Real-Time News Sentiment Dashboard (PySpark)")
 
@@ -19,8 +19,7 @@ st.title("Real-Time News Sentiment Dashboard (PySpark)")
 spark = SparkSession.builder.appName("NewsSentimentAPI").getOrCreate()
 api = NewsApiClient(api_key='eda1460cb9cc4cbebb8dab34df78501c')
 
-# Auto-refresh every 60 seconds
-st_autorefresh(interval=60 * 1000, key="news_refresh")
+
 
 # -----------------------
 # Fetch news from API
@@ -95,3 +94,9 @@ if not df_news.empty:
                  text='Count', title="Sentiment Distribution of Latest News Headlines")
     fig.update_layout(yaxis=dict(dtick=1))
     st.plotly_chart(fig)
+    
+import time
+
+refresh_interval = 60  # seconds
+time.sleep(refresh_interval)
+st.experimental_rerun()
