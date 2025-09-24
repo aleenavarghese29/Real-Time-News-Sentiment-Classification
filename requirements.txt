@@ -1,0 +1,8 @@
+streamlit==1.29.0
+pyspark==4.3.2
+textblob==0.17.1
+newsapi-python==0.2.7
+pandas==2.1.1
+plotly==5.16.1
+streamlit-autorefresh==0.1.0
+feedparser==6.0.10
